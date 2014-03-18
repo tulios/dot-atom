@@ -1,0 +1,43 @@
+'exception-reporting':
+  'userId': '99186274-4721-4381-1cdf-4d90e613d9ad'
+'release-notes':
+  'viewedVersion': '0.71.0'
+'welcome':
+  'showOnStartup': false
+'metrics':
+  'userId': 'aa943ad317c94e92019016ddf88b495c46835685'
+'editor':
+  'showIndentGuide': true
+  'showInvisibles': true
+  'fontFamily': 'PragmataPro'
+  'softWrap': true
+  'preferredLineLength': 200
+  'softWrapAtPreferredLineLength': true
+'core':
+  'themes': [
+    'atom-dark-ui'
+    'atom-dark-syntax'
+  ]
+  'ignoredNames': [
+    '.git'
+    '.svn'
+    '.DS_Store'
+    '.ruby-version'
+    '.ruby-gemset'
+    '.gitignore'
+    '.gitmodules'
+    '.rspec'
+  ]
+  'projectHome': '/Users/tulio/Projetos'
+  'disabledPackages': [
+    'archive-view'
+    'autoflow'
+    'language-php'
+    'language-toml'
+    'wrap-guide'
+  ]
+  'audioBeep': false
+'tree-view':
+  'hideIgnoredNames': true
+  'hideVcsIgnoredFiles': true
+'css-color-highlight': {}
