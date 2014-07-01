@@ -1,7 +1,7 @@
 {
   "name": "scroll-past-end",
   "main": "./lib/scroll-past-end",
-  "version": "0.1.3",
+  "version": "0.1.7",
   "description": "scroll past end",
   "readme": "In the process",
   "readmeFilename": "README.md",
@@ -18,10 +18,10 @@
     "url": "https://github.com/anson0370/scroll-past-end/issues"
   },
   "homepage": "https://github.com/anson0370/scroll-past-end",
-  "_id": "scroll-past-end@0.1.3",
+  "_id": "scroll-past-end@0.1.7",
   "dist": {
-    "shasum": "0ec1d760093049e1aafa54e7829e47b2150f96e5"
+    "shasum": "167dc5cba69815a47c611f550c178b6d6740d1ff"
   },
-  "_resolved": "/var/folders/b9/m1gjy6354zl01_dd7grfp3580000gn/T/d-114217-75208-1c75149/package.tgz",
-  "_from": "/var/folders/b9/m1gjy6354zl01_dd7grfp3580000gn/T/d-114217-75208-1c75149/package.tgz"
+  "_resolved": "/var/folders/tb/tzlr23kd7r98g2zhh1rhxwp80000gp/T/d-11461-21628-1m7gbtz/package.tgz",
+  "_from": "/var/folders/tb/tzlr23kd7r98g2zhh1rhxwp80000gp/T/d-11461-21628-1m7gbtz/package.tgz"
 }
