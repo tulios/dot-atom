@@ -9,14 +9,14 @@
 'editor':
   'showIndentGuide': true
   'showInvisibles': true
-  'fontFamily': 'PragmataPro'
   'softWrap': true
   'preferredLineLength': 200
   'softWrapAtPreferredLineLength': true
+  'fontFamily': 'PragmataPro'
 'core':
   'themes': [
-    'atom-dark-ui'
-    'atom-dark-syntax'
+    'spacegray-dark-ui'
+    'spacegray-dark-syntax'
   ]
   'ignoredNames': [
     '.git'
