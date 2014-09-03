@@ -8,14 +8,14 @@ module.exports =
     DisplayBuffer::getScrollHeight = ->
       # patch code start
       lineHeight = if @getLineHeight then @getLineHeight() else @getLineHeightInPixels()
-      if not lineHeight > 0
-        throw new Error("You must assign lineHeight before calling ::getScrollHeight()")
-      height = @getLineCount() * lineHeight
-      if atom.config.get("scroll-past-end").retainHalfScreen
-        height = height + @getHeight() / 2
-      else
-        height = height + @getHeight() - (lineHeight * 3)
-      height
+      return 0 unless lineHeight > 0
+      scrollHeight = @getLineCount() * lineHeight
+      if @height?
+        if atom.config.get("scroll-past-end").retainHalfScreen
+          scrollHeight = scrollHeight + @height / 2
+        else
+          scrollHeight = scrollHeight + @height - (lineHeight * 3)
+      scrollHeight
       # patch code end
 
     # patch for classic editor
