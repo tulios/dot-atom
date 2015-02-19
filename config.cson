@@ -1,43 +1,51 @@
-'exception-reporting':
-  'userId': '99186274-4721-4381-1cdf-4d90e613d9ad'
-'release-notes':
-  'viewedVersion': '0.71.0'
-'welcome':
-  'showOnStartup': false
-'metrics':
-  'userId': 'aa943ad317c94e92019016ddf88b495c46835685'
-'editor':
-  'showIndentGuide': true
-  'showInvisibles': true
-  'softWrap': true
-  'preferredLineLength': 200
-  'softWrapAtPreferredLineLength': true
-  'fontFamily': 'PragmataPro'
-'core':
-  'themes': [
-    'spacegray-dark-ui'
-    'spacegray-dark-syntax'
-  ]
-  'ignoredNames': [
-    '.git'
-    '.svn'
-    '.DS_Store'
-    '.ruby-version'
-    '.ruby-gemset'
-    '.gitignore'
-    '.gitmodules'
-    '.rspec'
-  ]
-  'projectHome': '/Users/tulio/Projetos'
-  'disabledPackages': [
-    'archive-view'
-    'autoflow'
-    'language-php'
-    'language-toml'
-    'wrap-guide'
-  ]
-  'audioBeep': false
-'tree-view':
-  'hideIgnoredNames': true
-  'hideVcsIgnoredFiles': true
-'css-color-highlight': {}
+"*":
+  "exception-reporting":
+    userId: "99186274-4721-4381-1cdf-4d90e613d9ad"
+  "release-notes":
+    viewedVersion: "0.71.0"
+  welcome:
+    showOnStartup: false
+  metrics:
+    userId: "aa943ad317c94e92019016ddf88b495c46835685"
+  editor:
+    fontFamily: "PragmataPro"
+    fontSize: 26
+    showIndentGuide: true
+    preferredLineLength: 200
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+    scrollPastEnd: true
+    useShadowDOM: true
+    invisibles: {}
+  core:
+    ignoredNames: [
+      ".git"
+      ".svn"
+      ".DS_Store"
+      ".ruby-version"
+      ".ruby-gemset"
+      ".gitignore"
+      ".gitmodules"
+      ".rspec"
+    ]
+    disabledPackages: [
+      "archive-view"
+      "autoflow"
+      "language-php"
+      "language-toml"
+      "wrap-guide"
+      "css-color-highlight"
+    ]
+    themes: [
+      "one-dark-ui"
+      "one-dark-syntax"
+    ]
+    projectHome: "/Users/tulio/Projetos"
+    audioBeep: false
+  "tree-view":
+    hideVcsIgnoredFiles: true
+    hideIgnoredNames: true
+  react:
+    jsxTagStartPattern: "(?x)((^|=|return)\\s*<([^!/?](?!.+?(</.+?>))))"
+    jsxComplexAttributePattern: "(?x)\\{ [^}\"']* $|\\( [^)\"']* $"
+    decreaseIndentForNextLinePattern: "(?x) />\\s*(,|;)?\\s*$ | ^\\s*\\S+.*</[-_\\.A-Za-z0-9]+>$"
