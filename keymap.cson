@@ -17,9 +17,9 @@
 #   'ctrl-p': 'core:move-down'
 #
 
-'.editor:not(.mini)':
+'atom-text-editor:not([mini])':
   'cmd-d': 'editor:delete-line'
 
-'.workspace .editor:not(.mini)':
+'atom-workspace atom-text-editor:not([mini])':
   'cmd-ctrl-k': 'editor:move-line-down'
   'cmd-ctrl-j': 'editor:move-line-up'

@@ -1,9 +1,5 @@
 {
 ".source.js":
-  "React: var cx = React.addons.classSet;":
-    prefix: "cs"
-    body: "var cx = React.addons.classSet;"
-
   "React: componentDidMount: fn() { ... }":
     prefix: "cdm"
     body: "componentDidMount: function() {\n\t${1}\n},"
@@ -76,11 +72,7 @@
     prefix: "state"
     body: "this.state.${1}"
 
-  "React: transferPropsTo( ... )":
-    prefix: "trp"
-    body: "transferPropsTo(${1});"
-
-  "React: renderComponent(component, container, [callback])":
+  "React: render(component, container, [callback])":
     prefix: "rrc"
-    body: "React.renderComponent(${1:<$2 />}, ${3:document.body}${4:, ${5:callback}});"
+    body: "React.render(${1:<$2 />}, ${3:document.body}${4:, ${5:callback}});"
 }

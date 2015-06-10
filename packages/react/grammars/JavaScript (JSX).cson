@@ -1,9 +1,8 @@
 'name': 'JavaScript (JSX)'
 'scopeName': 'source.js.jsx'
 'fileTypes': [
-  'htc'
-  'js'
-  'jsx'
+  'jsx',
+  'react.js'
 ]
 'patterns': [
   {
@@ -109,7 +108,7 @@
       }
     ]
   'jsx-tag-open':
-    'begin': '(<)([a-zA-Z0-9:$_]+)'
+    'begin': '(<)([a-zA-Z0-9\.:$_]+)'
     'end': '(/?>)'
     'name': 'tag.open.js'
     'endCaptures':

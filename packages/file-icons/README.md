@@ -2,56 +2,42 @@
 
 Adds file specific icons to atom for improved visual grepping. Works with Tree View and Fuzzy Finder and Tabs.
 
-*New Settings*
 
 ![Screenshot](https://raw.githubusercontent.com/DanBrooker/file-icons/master/file-icons.png)
 
-A number of icons and colours are provied by default for a range of common file types.
+A number of icons and colours are provided by default for a range of common file types.
 If you have file that you would like custom icons for you can easily add this yourself.
 
 File Icons are now specified via css(less) only.
 
 ## No Colours
 
-*Colourless icons is now a setting in the atom preferences*
-
-You can now remove this from your user stylesheet
-```css
-@import "packages/file-icons/features/no-colours";
-```
+Disable colours in the settings
 
 ## Unity Theme
 
-By default the Unity theme hides icons
-
-*Force show icons is now a setting in the atom preferences*
-
-You can now remove this from your user stylesheet
-```css
-@import "packages/file-icons/features/force-show-icons";
-```
+By default the Unity theme hides icons, you can force to show the icons in the settings
 
 # Customisation
 
 The following css can be added to your user stylesheet to customise files with the .rb file extension
 
 ```css
-@import "packages/file-icons/stylesheets/colors"; // to use the colours
-@import "packages/file-icons/stylesheets/icons";  // to use the defined icons
+@import "packages/file-icons/styles/colors"; // to use the colours
+@import "packages/file-icons/styles/icons";  // to use the defined icons
 ```
 
 ```css
-@import "packages/file-icons/stylesheets/items";
+@import "packages/file-icons/styles/items";
 @{pane-tab-selector}, .icon-file-text {
   &[data-name$=".rb"]          { .medium-red;             } // Colours icon and filename
-  &[data-name$=".rb"]:before   { .ruby-icon; .medium-red; } // Colours icon only
   &[data-name$=".rb"]:before   { .ruby-icon; .medium-red; } // Colours icon only
 }
 ```
 
 Folders
 ```css
-@import "packages/file-icons/stylesheets/items";
+@import "packages/file-icons/styles/items";
 @{pane-tab-selector}, .icon-file-directory {
   &[data-name=".git"]:before { .git-icon; }
 }

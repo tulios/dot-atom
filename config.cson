@@ -9,14 +9,15 @@
     userId: "aa943ad317c94e92019016ddf88b495c46835685"
   editor:
     fontFamily: "PragmataPro"
-    fontSize: 26
     showIndentGuide: true
     preferredLineLength: 200
     softWrap: true
     softWrapAtPreferredLineLength: true
     scrollPastEnd: true
     useShadowDOM: true
-    invisibles: {}
+    invisibles:
+      {}
+    fontSize: 26
   core:
     ignoredNames: [
       ".git"
@@ -34,7 +35,8 @@
       "language-php"
       "language-toml"
       "wrap-guide"
-      "css-color-highlight"
+      "scroll-past-end"
+      "atom-erb"
     ]
     themes: [
       "one-dark-ui"
@@ -46,6 +48,17 @@
     hideVcsIgnoredFiles: true
     hideIgnoredNames: true
   react:
-    jsxTagStartPattern: "(?x)((^|=|return)\\s*<([^!/?](?!.+?(</.+?>))))"
-    jsxComplexAttributePattern: "(?x)\\{ [^}\"']* $|\\( [^)\"']* $"
-    decreaseIndentForNextLinePattern: "(?x) />\\s*(,|;)?\\s*$ | ^\\s*\\S+.*</[-_\\.A-Za-z0-9]+>$"
+    {}
+  "copy-as-rtf":
+    style: "atom-light-syntax"
+  "autocomplete-plus":
+    autoActivationDelay: 200
+".gohtml.html.text":
+  editor:
+    preferredLineLength: 200
+".go.source":
+  editor:
+    preferredLineLength: 200
+".gotemplate.source":
+  editor:
+    preferredLineLength: 200
