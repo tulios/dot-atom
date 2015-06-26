@@ -15,9 +15,8 @@
     softWrapAtPreferredLineLength: true
     scrollPastEnd: true
     useShadowDOM: true
-    invisibles:
-      {}
-    fontSize: 26
+    invisibles: {}
+    fontSize: 19
   core:
     ignoredNames: [
       ".git"
@@ -37,6 +36,7 @@
       "wrap-guide"
       "scroll-past-end"
       "atom-erb"
+      "atom-color-highlight"
     ]
     themes: [
       "one-dark-ui"
@@ -47,18 +47,19 @@
   "tree-view":
     hideVcsIgnoredFiles: true
     hideIgnoredNames: true
-  react:
-    {}
+  react: {}
   "copy-as-rtf":
     style: "atom-light-syntax"
   "autocomplete-plus":
     autoActivationDelay: 200
+  "atom-color-highlight": {}
+  pigments: {}
 ".gohtml.html.text":
   editor:
     preferredLineLength: 200
-".go.source":
+".gotemplate.source":
   editor:
     preferredLineLength: 200
-".gotemplate.source":
+".go.source":
   editor:
     preferredLineLength: 200
