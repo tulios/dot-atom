@@ -1,0 +1,15 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  'atom-workspace': [{ label: 'Open in GitX', command: 'open-in-gitx:open' }]
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'GitX'
+      'submenu': [
+        { 'label': 'Open in GitX', 'command': 'open-in-gitx:open' }
+      ]
+    ]
+  }
+]
