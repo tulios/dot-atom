@@ -43,26 +43,36 @@ class ColorMarkerElement extends HTMLElement
     @clear()
 
   render: ->
+    return if @colorMarker.marker.displayBuffer.isDestroyed()
     @innerHTML = ''
     {style, regions, class: cls} = @renderer.render(@colorMarker)
 
     @appendChild(region) for region in regions if regions?
     if cls?
-      classes = cls.split(' ')
-      @classList.add(cls) for cls in classes
+      @className = cls
+    else
+      @className = ''
 
     if style?
       @style[k] = v for k,v of style
     else
       @style.cssText = ''
 
+    @lastMarkerScreenRange = @colorMarker.getScreenRange()
+
+  checkScreenRange: ->
+    return unless @colorMarker?
+    unless @lastMarkerScreenRange.isEqual(@colorMarker.getScreenRange())
+      @render()
+
   isReleased: -> @released
 
   release: (dispatchEvent=true) ->
     return if @released
     @subscriptions.dispose()
+    marker = @colorMarker
     @clear()
-    @emitter.emit('did-release') if dispatchEvent
+    @emitter.emit('did-release', {marker, view: this}) if dispatchEvent
 
   clear: ->
     @subscriptions = null

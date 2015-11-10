@@ -6,7 +6,6 @@ path = require 'path'
 
 removeLeadingWhitespace = (string) -> string.replace(/^\s+/, '')
 
-module.exports =
 class ColorResultsElement extends HTMLElement
   SpacePenDSL.includeInto(this)
   EventsDelegation.includeInto(this)
@@ -21,10 +20,11 @@ class ColorResultsElement extends HTMLElement
             @span outlet: 'searchedCount', class: 'searched-count'
             @span ' paths searched'
 
-      @ol outlet: 'resultsList', class: 'search-colors-results results-view list-tree focusable-panel has-collapsable-children', tabindex: -1
+      @ol outlet: 'resultsList', class: 'search-colors-results results-view list-tree focusable-panel has-collapsable-children native-key-bindings', tabindex: -1
 
   createdCallback: ->
     @subscriptions = new CompositeDisposable
+    @pathMapping = {}
 
     @files = 0
     @colors = 0
@@ -38,7 +38,7 @@ class ColorResultsElement extends HTMLElement
         fileItem.classList.toggle('collapsed')
 
     @subscriptions.add @subscribeTo this, '.search-result',
-      click: (e) ->
+      click: (e) =>
         e.stopPropagation()
         matchItem = if e.target.matches('.search-result')
           e.target
@@ -50,7 +50,8 @@ class ColorResultsElement extends HTMLElement
           matchItem.dataset.start.split(',').map(Number)
           matchItem.dataset.end.split(',').map(Number)
         ])
-        atom.workspace.open(fileItem.dataset.path).then (editor) ->
+        pathAttribute = fileItem.dataset.path
+        atom.workspace.open(@pathMapping[pathAttribute]).then (editor) ->
           editor.setSelectedBufferRange(range, autoscroll: true)
 
   setModel: (@colorSearch) ->
@@ -107,6 +108,7 @@ class ColorResultsElement extends HTMLElement
     fileBasename = path.basename(filePath)
 
     pathAttribute = _.escapeAttribute(filePath)
+    @pathMapping[pathAttribute] = filePath
     pathName = atom.project.relativize(filePath)
 
     """
@@ -139,9 +141,6 @@ class ColorResultsElement extends HTMLElement
     style = ''
     style += "background: #{match.color.toCSS()};"
     style += "color: #{textColor};"
-
-    if fontFamily = atom.config.get('editor.fontFamily')
-      style += "font-family: #{fontFamily};"
 
     """
     <li class="search-result list-item" data-start="#{range.start.row},#{range.start.column}" data-end="#{range.end.row},#{range.end.column}">

@@ -16,7 +16,7 @@
     scrollPastEnd: true
     useShadowDOM: true
     invisibles: {}
-    fontSize: 19
+    fontSize: 26
   core:
     ignoredNames: [
       ".git"
@@ -37,29 +37,62 @@
       "scroll-past-end"
       "atom-erb"
       "atom-color-highlight"
+      "jshint"
+      "linter-eslint"
+      "linter"
+      "linter-coffeelint"
     ]
     themes: [
       "one-dark-ui"
       "one-dark-syntax"
     ]
-    projectHome: "/Users/tulio/Projetos"
+    projectHome: "/Users/tulio/Projects"
     audioBeep: false
   "tree-view":
-    hideVcsIgnoredFiles: true
     hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
   react: {}
-  "copy-as-rtf":
-    style: "atom-light-syntax"
+  "copy-as-rtf": {}
   "autocomplete-plus":
     autoActivationDelay: 200
   "atom-color-highlight": {}
   pigments: {}
+  "fuzzy-finder":
+    ignoredNames: [
+      "*/vcr/*"
+    ]
+  "language-babel":
+    transpileOnSave: false
+    disableWhenNoBabelrcFileInPath: true
+  "merge-conflicts": {}
+  "rubocop-auto-correct":
+    autoRun: true
+  linter: {}
+  "go-plus": {}
+  "git-plus": {}
+  "markdown-preview":
+    useGitHubStyle: true
 ".gohtml.html.text":
+  editor:
+    preferredLineLength: 200
+".js.regexp.source":
+  editor:
+    preferredLineLength: 200
+".js.jsx.source":
+  editor:
+    preferredLineLength: 200
+".babel.regexp.source":
+  editor:
+    preferredLineLength: 200
+".diff.source":
   editor:
     preferredLineLength: 200
 ".gotemplate.source":
   editor:
     preferredLineLength: 200
 ".go.source":
+  editor:
+    preferredLineLength: 200
+".js.source":
   editor:
     preferredLineLength: 200

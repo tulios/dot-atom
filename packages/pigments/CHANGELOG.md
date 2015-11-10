@@ -1,3 +1,250 @@
+<a name="v0.18.1"></a>
+# v0.18.1 (2015-10-27)
+
+## Bug Fixes
+
+- Fix dot markers still visible when rows are folded ([771d1004](https://github.com/abe33/atom-pigments/commit/771d100493e607161ca10366891d6695eba1fe7c), [#104](https://github.com/abe33/atom-pigments/issues/104))
+
+<a name="v0.18.0"></a>
+# v0.18.0 (2015-10-16)
+
+## Features
+
+- Implement support for elm grayscale and complement functions ([ace8dd17](https://github.com/abe33/atom-pigments/commit/ace8dd17f4534b4dd91328ba8dc0d44f331001bf))
+- Implement elm hsl and hsla functions ([75b059e0](https://github.com/abe33/atom-pigments/commit/75b059e09045bf7e060c3f9791dd7d98a44df133))
+- Implement support for elm rgb and rgba functions ([342b3d85](https://github.com/abe33/atom-pigments/commit/342b3d85bbb8b11d2ae2cc9ddd85067e01b400fd))
+- Implement support for Lua colors ([16843624](https://github.com/abe33/atom-pigments/commit/1684362444a44712839c49dedf524a3ce0f7704b), [#91](https://github.com/abe33/atom-pigments/issues/91))
+
+## Bug Fixes
+
+- Fix marker other than background disappearing when cursor is inside ([c6e469ad](https://github.com/abe33/atom-pigments/commit/c6e469ade8c45193ece6c8b9d9d7af2a5f65c293), [#99](https://github.com/abe33/atom-pigments/issues/99))
+
+<a name="v0.17.1"></a>
+# v0.17.1 (2015-10-12)
+
+## Bug Fixes
+
+- Remove engine restriction now that pigments support for old API is back ([2d4d8282](https://github.com/abe33/atom-pigments/commit/2d4d828205a0a7ebbc77bde6617f3af9e5c2176d))
+
+<a name="v0.17.0"></a>
+# v0.17.0 (2015-10-10)
+
+## Features
+
+- Add supportedFiletypes setting ([c99fce03](https://github.com/abe33/atom-pigments/commit/c99fce031776bbd5810d7fba95bad14eee6c0d94))  <br>It should help avoiding users to be confused by the ignored scopes
+  setting as discussed in [#93](https://github.com/abe33/atom-pigments/issues/93).
+
+## Performances
+
+- Avoid evaluating a restored color ([d98d0e45](https://github.com/abe33/atom-pigments/commit/d98d0e45274467e701ab5b2ad4f8db741fc3d4f1))
+
+<a name="v0.16.3"></a>
+# v0.16.3 (2015-10-09)
+
+## Bug Fixes
+
+- Support both new and old API until 1.0.20 is released ([660ca2c5](https://github.com/abe33/atom-pigments/commit/660ca2c5b8f5332f8a1c080a7632cb66ee07d7e2))
+
+<a name="v0.16.2"></a>
+# v0.16.2 (2015-10-03)
+
+## Bug Fixes
+
+- Fix remaining deprecations triggered by context menu ([f551e012](https://github.com/abe33/atom-pigments/commit/f551e0123b02e21fe70984b1ea2f202ac4dd845d))
+
+<a name="v0.16.1"></a>
+# v0.16.1 (2015-09-29)
+
+## Bug Fixes
+
+- Fix error raised when a variable doesn't have any dependencies ([e6845d94](https://github.com/abe33/atom-pigments/commit/e6845d947feb611afb35ba6fcf88584fff6d145e))
+
+<a name="v0.16.0"></a>
+# v0.16.0 (2015-09-28)
+
+## Bug Fixes
+
+- Fix broken marker element specs ([1db49ee8](https://github.com/abe33/atom-pigments/commit/1db49ee87e9790e136dabde7655968d0bb25c5da))
+- Fix use of deprecated scroll event on table editor ([ce94dc11](https://github.com/abe33/atom-pigments/commit/ce94dc11f16e074677c57a5e4e86fc77914bc6aa))
+- Fix broken buffer element due to change in display buffer ([5a3100ef](https://github.com/abe33/atom-pigments/commit/5a3100efab71775da4e3c622cb11ac0e77756d4d))
+
+## Dependencies Update
+
+- Bump atom-utils version ([a2e7edd4](https://github.com/abe33/atom-pigments/commit/a2e7edd470b943a7717629955e70ac6f7d39e924))
+
+<a name="v0.15.0"></a>
+# v0.15.0 (2015-09-14)
+
+## Features
+
+- Add optional percent support for hsl, hsla, hsb, hsba, hsv, hsva, hwb and gray expressions ([dd97b2ec](https://github.com/abe33/atom-pigments/commit/dd97b2ec4b982b26206a975b6d89f8e515c2607b))
+
+<a name="v0.14.0"></a>
+# v0.14.0 (2015-09-08)
+
+## Features
+
+- Add support for HSB color space ([00875c23](https://github.com/abe33/atom-pigments/commit/00875c2310562fe82455337d6a3735949e2fee1d), [#85](https://github.com/abe33/atom-pigments/issues/85))
+  <br>Based on what wikipedia says, HSB is an alias for HSV.
+- Add support for fade-out/fade_out and fade-in/fade_in sass functions ([6ae33a3e](https://github.com/abe33/atom-pigments/commit/6ae33a3e3d180967e9e81d9bb3d574b2d73683a6), [#84](https://github.com/abe33/atom-pigments/issues/84))
+
+<a name="v0.13.2"></a>
+# v0.13.2 (2015-09-01)
+
+## Bug Fixes
+
+- Fix callback binding in search results ([447fe35b](https://github.com/abe33/atom-pigments/commit/447fe35b45cc9bcf249df46f93bfea68aded4d68))
+
+## Other
+
+- Bump markers version ([9d15495a](https://github.com/abe33/atom-pigments/commit/9d15495a2607f39695dc7430b7863052f2a88a32))
+
+<a name="v0.13.1"></a>
+# v0.13.1 (2015-09-01)
+
+## Bug Fixes
+
+- Fix backslash escaping preventing to open files on windows ([0874de30](https://github.com/abe33/atom-pigments/commit/0874de30e26297aa5ee58221c4de19c0f18c1cf7), [#68](https://github.com/abe33/atom-pigments/issues/68))
+- Fix error raised when a change force a range check on a destroyed marker ([dfcb055d](https://github.com/abe33/atom-pigments/commit/dfcb055d9d0ad417b3bee53a5e7dfadf0586b023), [#74](https://github.com/abe33/atom-pigments/issues/74))
+- Fix error raised when there's no screen line for a marker ([f187e6c8](https://github.com/abe33/atom-pigments/commit/f187e6c88d5d3626187f1da081c7b20e172d1594), [#73](https://github.com/abe33/atom-pigments/issues/73))
+- Fix find view font not following find-and-replace style ([9db9ff28](https://github.com/abe33/atom-pigments/commit/9db9ff283772d7681bb0bfd1bf4433fe83226e01), [#78](https://github.com/abe33/atom-pigments/issues/78))
+- Fix marker classes not properly removed when type change ([3b2b6dd2](https://github.com/abe33/atom-pigments/commit/3b2b6dd29a36ad5b0092212cf29aef0805d6ba14), [#80](https://github.com/abe33/atom-pigments/issues/80))
+- Fix palette using flawed javascript sort ([df242f8f](https://github.com/abe33/atom-pigments/commit/df242f8ff03e4a0f917d968f7a38c556778f9fbe))
+
+<a name="v0.13.0"></a>
+# v0.13.0 (2015-08-31)
+
+## Features
+
+- Implement project settings to ignore global config ([f9d3d168](https://github.com/abe33/atom-pigments/commit/f9d3d168840a7ade4626c0b9c7ad120271225b14))
+- Implement project level support of extended search names ([d5aacf13](https://github.com/abe33/atom-pigments/commit/d5aacf132d7d0336a75dd3a7d4d659a1ef991cb0))
+- Implement falling back to defaults whenever a value is invalid ([135b9564](https://github.com/abe33/atom-pigments/commit/135b9564985f54cad89e722f60634ad13efcc477))
+- Implement sorting paths when building the evaluation context ([91570135](https://github.com/abe33/atom-pigments/commit/915701350a9b49ad730fd7c70b4fc9830b9b84dc), [#79](https://github.com/abe33/atom-pigments/issues/79))  <br>The variables are sorted based on a reference path and end up as below:
+  - variables from the other root paths
+  - variables from the same root path
+  - variables from the same path
+- Implement watching for themes changes when includeThemes is set ([643f3aa6](https://github.com/abe33/atom-pigments/commit/643f3aa6390066bff28d7a273a389d39ea6d1fe9))
+- Add regular expression highlighting in corresponding text editor ([daaa176e](https://github.com/abe33/atom-pigments/commit/daaa176e75c9acfa10a469c2b67da4a3db1b5908))
+
+## Bug Fixes
+
+- Fix ignored scopes not honored on buffer initialization ([a681ebfa](https://github.com/abe33/atom-pigments/commit/a681ebfa381bc54eade1163e9937d5a1f63b8aa3), [#57](https://github.com/abe33/atom-pigments/issues/57))
+
+<a name="v0.12.0"></a>
+# v0.12.0 (2015-08-28)
+
+## Features
+
+- Add new setting to extend the color search to files not in source names ([ed38956b](https://github.com/abe33/atom-pigments/commit/ed38956b201e600fb9dcc167dc586364239423a0))
+  <br>The default now allow to catch colors in CSS files.
+
+## Bug Fixes
+
+- Fix access to undefined project in autocomplete provider ([f1c1227a](https://github.com/abe33/atom-pigments/commit/f1c1227abf71505f8a554357b7000667b27950b0), [#6](https://github.com/abe33/atom-pigments/issues/6))
+
+<a name="v0.11.0"></a>
+# v0.11.0 (2015-08-13)
+
+## Features
+
+- Implement support for stylus channel modification functions ([6d783fd6](https://github.com/abe33/atom-pigments/commit/6d783fd6c74f08c8684002d9374a0a9340647630), [#72](https://github.com/abe33/atom-pigments/issues/72))
+- Add support for Stylus transparentify function ([86834c1a](https://github.com/abe33/atom-pigments/commit/86834c1a2cec64956ca29e9fb5bb977151aac021), [#72](https://github.com/abe33/atom-pigments/issues/72))
+
+## Bug Fixes
+
+- Fix spin function called with degrees not parsed properly ([92a5e890](https://github.com/abe33/atom-pigments/commit/92a5e890b8c090bdf63f0947c3c781f43eadc259), [#72](https://github.com/abe33/atom-pigments/issues/72))
+
+<a name="v0.10.0"></a>
+# v0.10.0 (2015-08-13)
+
+## Features
+
+- Separate conversions to RGB and RGBA in two commands ([2f2da668](https://github.com/abe33/atom-pigments/commit/2f2da668187a709f24b5c18732684e9a1805d7da), [#71](https://github.com/abe33/atom-pigments/issues/71))
+
+## Bug Fixes
+
+- Prevent attaching a buffer if the editor element is undefined ([5fa6964c](https://github.com/abe33/atom-pigments/commit/5fa6964c5598a96ee243377c0f765640897e9217), [#70](https://github.com/abe33/atom-pigments/issues/70))
+
+## Performances
+
+- Cache marker's screen range to speed up updates and renders ([1746e1fe](https://github.com/abe33/atom-pigments/commit/1746e1fed9411311f9f8bd92b0a1da5516fe27ac))
+
+<a name="v0.9.3"></a>
+# v0.9.3 (2015-08-02)
+
+## Bug Fixes
+
+- Prevent markers creation and render after text editor was destroyed ([0b7e598b](https://github.com/abe33/atom-pigments/commit/0b7e598be84409c4b21e058a030e08124b4c52c1), [#63](https://github.com/abe33/atom-pigments/issues/63))
+
+<a name="v0.9.2"></a>
+# v0.9.2 (2015-07-27)
+
+## Bug Fixes
+
+- Prevent error raised when checking a destroyed marker ([e5d6512f](https://github.com/abe33/atom-pigments/commit/e5d6512fb5e958bcc0afacd093d7bebfbd492989))
+- Fix marker ignored state not reevaluated when ignored scopes changed ([0c148db3](https://github.com/abe33/atom-pigments/commit/0c148db378150baaf9b05ea97c6f2844c07f9cf3))
+
+## Performances
+
+- Use asynchronous markers creation to avoid locking the UI ([4775788f](https://github.com/abe33/atom-pigments/commit/4775788f5cb8e24b52376560298bc44304917ae3) [#58](https://github.com/abe33/atom-pigments/issues/58))
+- Store the ignored state into the marker for speedup ([ca922bac](https://github.com/abe33/atom-pigments/commit/ca922bac9cc93fbf87cad3652e82f757110bbab0))
+
+<a name="v0.9.1"></a>
+# v0.9.1 (2015-07-27)
+
+## Bug Fixes
+
+- Add missing `native-key-bindings` class on palette and results elements ([340d8117](https://github.com/abe33/atom-pigments/commit/340d81178bde5a69b015a0631301f383ed979ac1), [#60](https://github.com/abe33/atom-pigments/issues/60))
+- Fix infinite loop when splitting a match with a `)` ([eb7baad1](https://github.com/abe33/atom-pigments/commit/eb7baad120c9a1ed0f08c3c24a78ee36b2eb78b9), [#61](https://github.com/abe33/atom-pigments/issues/61))
+
+<a name="v0.9.0"></a>
+# v0.9.0 (2015-07-21)
+
+## Features
+
+- Add destroy event on project ([3752bf23](https://github.com/abe33/atom-pigments/commit/3752bf23bdf7148db23181feacf153180c8ace9b))
+- Add ignoreVcsIgnoredPaths setting instead of using the core setting ([11c78185](https://github.com/abe33/atom-pigments/commit/11c7818512d1dec04a32cbf0fa0f7900353eb785))
+
+## Bug Fixes
+
+- Fix markers out of sync when a line gets wrapped during typing ([f9f2015b](https://github.com/abe33/atom-pigments/commit/f9f2015ba49823b87968c09c7bb7dc0ae24f4d5c), [#55](https://github.com/abe33/atom-pigments/issues/55))
+- Prevent error when an event is dispatched after destruction ([3c6d3a12](https://github.com/abe33/atom-pigments/commit/3c6d3a12185552a6792ef3d44ef625dbd5b9c143))
+- Fix project variables not destroyed when reload find nothing ([16701793](https://github.com/abe33/atom-pigments/commit/167017931c21fcc3c53c6e04115c2bc5d447f163))
+- Make sure to update markers when stylesheets are added ([61f00898](https://github.com/abe33/atom-pigments/commit/61f00898d1a244f14f4ac6da0e4cf36794740fe0), [#51](https://github.com/abe33/atom-pigments/issues/51))
+
+<a name="v0.8.4"></a>
+# v0.8.4 (2015-07-10)
+
+## Bug Fixes
+
+- Fix percentage with % treated as float in 0-1 range ([107d781b](https://github.com/abe33/atom-pigments/commit/107d781b4caa41db98b57bbca8cd24bfcb164676), [#49](https://github.com/abe33/atom-pigments/issues/49))
+
+<a name="v0.8.3"></a>
+# v0.8.3 (2015-07-07)
+
+## Bug Fixes
+
+- Fix error raised in the palette view if a color is destroyed inbetween ([fd0f9a41](https://github.com/abe33/atom-pigments/commit/fd0f9a41cab80dfc370d8e2aa88dd7d29764fb2a), [#47](https://github.com/abe33/atom-pigments/issues/47))
+- Fix error when updating dependencies if a null variable is present ([22a3f0fb](https://github.com/abe33/atom-pigments/commit/22a3f0fbf165f83136d0a7ca9cd60b1297c46d44), [#48](https://github.com/abe33/atom-pigments/issues/48))
+- Removes color markers from display markers when destroyed ([d16e0f86](https://github.com/abe33/atom-pigments/commit/d16e0f861f085dede89c69d8a96c794c3950e63b))
+
+<a name="v0.8.2"></a>
+# v0.8.2 (2015-06-30)
+
+## Bug Fixes
+
+- Prevent errors when reading scopes in a buffer ([cc4ccaa7](https://github.com/abe33/atom-pigments/commit/cc4ccaa73f7ea156d3cafaee4b06035b25d6dc75), [#46](https://github.com/abe33/atom-pigments/issues/46))
+- Prevent errors raised when rendering a color marker view ([adff568f](https://github.com/abe33/atom-pigments/commit/adff568f0d20e55262be8d8a2321aa338153d604), [#27](https://github.com/abe33/atom-pigments/issues/27))
+
+<a name="v0.8.1"></a>
+# v0.8.1 (2015-06-27)
+
+## Bug Fixes
+
+- Fix XML entities and CSS color function improperly highlighted ([60545015](https://github.com/abe33/atom-pigments/commit/60545015230feed7a7896834e5950e1bb693f4af), [#39](https://github.com/abe33/atom-pigments/issues/39))
+- Fix error raised when right clicking an editor without a shadow root ([30e21092](https://github.com/abe33/atom-pigments/commit/30e2109273e36e4012e799620b289b3fdaaf8768), [#44](https://github.com/abe33/atom-pigments/issues/44))
+- Prevent error raised in color search ([ebb02279](https://github.com/abe33/atom-pigments/commit/ebb02279743370b4054ab2358761989b90397d51))
+
 <a name="v0.8.0"></a>
 # v0.8.0 (2015-06-19)
 

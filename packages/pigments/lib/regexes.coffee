@@ -1,16 +1,17 @@
 int = '\\d+'
 decimal = "\\.#{int}"
-float = "(?:#{int}|#{int}#{decimal}|#{decimal})"
+float = "(?:#{int}#{decimal}|#{int}|#{decimal})"
 percent = "#{float}%"
-variables = '(@[a-zA-Z0-9\\-_]+|\\$[a-zA-Z0-9\\-_]+|[a-zA-Z_][a-zA-Z0-9\\-_]*)'
+variables = '(?:@[a-zA-Z0-9\\-_]+|\\$[a-zA-Z0-9\\-_]+|[a-zA-Z_][a-zA-Z0-9\\-_]*)'
 namePrefixes = '^| |:|=|,|\\n|\'|"|\\(|\\[|\\{'
 
 module.exports =
   int: int
   float: float
   percent: percent
-  intOrPercent: "(#{percent}|#{int})"
-  floatOrPercent: "(#{percent}|#{float})"
+  optionalPercent: "#{float}%?"
+  intOrPercent: "(?:#{percent}|#{int})"
+  floatOrPercent: "(?:#{percent}|#{float})"
   comma: '\\s*,\\s*'
   notQuote: "[^\"'\\n]+"
   hexadecimal: '[\\da-fA-F]'
@@ -24,4 +25,4 @@ module.exports =
       variableNames.push v.name.replace(/[-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&")
     variableNames = variableNames.join('|')
 
-    "(#{namePrefixes})(#{variableNames})(?!_|-|\\w|\\d|[ \\t]*[\\.:=])"
+    "(?:#{namePrefixes})(#{variableNames})(?!_|-|\\w|\\d|[ \\t]*[\\.:=])"

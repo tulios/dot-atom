@@ -34,15 +34,16 @@ describe 'ColorParser', ->
     withContext: (variables) ->
       vars = []
       colorVars = []
+      path = "/path/to/file.styl"
       for name,value of variables
         if value.indexOf('color:') isnt -1
           value = value.replace('color:', '')
-          vars.push {name, value}
-          colorVars.push {name, value}
+          vars.push {name, value, path}
+          colorVars.push {name, value, path}
 
         else
-          vars.push {name, value}
-      @context = new ColorContext(vars, colorVars)
+          vars.push {name, value, path}
+      @context = new ColorContext({variables: vars, colorVariables: colorVars})
       @description = "with variables context #{jasmine.pp variables} "
 
       return this
@@ -113,6 +114,7 @@ describe 'ColorParser', ->
   }).asColor(0, 128, 0, 0.5)
 
   itParses('hsl(200,50%,50%)').asColor(64, 149, 191)
+  itParses('hsl(200,50,50)').asColor(64, 149, 191)
   itParses('hsl($h,$s,$l,)').asUndefined()
   itParses('hsl($h,$s,$l)').asInvalid()
   itParses('hsl($h,0%,0%)').asInvalid()
@@ -126,6 +128,7 @@ describe 'ColorParser', ->
 
   itParses('hsla(200,50%,50%,0.5)').asColor(64, 149, 191, 0.5)
   itParses('hsla(200,50%,50%,.5)').asColor(64, 149, 191, 0.5)
+  itParses('hsla(200,50,50,.5)').asColor(64, 149, 191, 0.5)
   itParses('hsla(200,50%,50%,)').asUndefined()
   itParses('hsla($h,$s,$l,$a)').asInvalid()
   itParses('hsla($h,0%,0%,0)').asInvalid()
@@ -140,6 +143,8 @@ describe 'ColorParser', ->
   }).asColor(64, 149, 191, 0.5)
 
   itParses('hsv(200,50%,50%)').asColor(64, 106, 128)
+  itParses('hsb(200,50%,50%)').asColor(64, 106, 128)
+  itParses('hsb(200,50,50)').asColor(64, 106, 128)
   itParses('hsv($h,$s,$v,)').asUndefined()
   itParses('hsv($h,$s,$v)').asInvalid()
   itParses('hsv($h,0%,0%)').asInvalid()
@@ -152,6 +157,8 @@ describe 'ColorParser', ->
   }).asColor(64, 106, 128)
 
   itParses('hsva(200,50%,50%,0.5)').asColor(64, 106, 128, 0.5)
+  itParses('hsva(200,50,50,0.5)').asColor(64, 106, 128, 0.5)
+  itParses('hsba(200,50%,50%,0.5)').asColor(64, 106, 128, 0.5)
   itParses('hsva(200,50%,50%,.5)').asColor(64, 106, 128, 0.5)
   itParses('hsva(200,50%,50%,)').asUndefined()
   itParses('hsva($h,$s,$v,$a)').asInvalid()
@@ -166,6 +173,7 @@ describe 'ColorParser', ->
   }).asColor(64, 106, 128, 0.5)
 
   itParses('hwb(210,40%,40%)').asColor(102, 128, 153)
+  itParses('hwb(210,40,40)').asColor(102, 128, 153)
   itParses('hwb(210,40%,40%, 0.5)').asColor(102, 128, 153, 0.5)
   itParses('hwb($h,$w,$b,)').asUndefined()
   itParses('hwb($h,$w,$b)').asInvalid()
@@ -189,6 +197,7 @@ describe 'ColorParser', ->
   }).asColor(102, 128, 153, 0.5)
 
   itParses('gray(100%)').asColor(255, 255, 255)
+  itParses('gray(100)').asColor(255, 255, 255)
   itParses('gray(100%, 0.5)').asColor(255, 255, 255, 0.5)
   itParses('gray($c, $a,)').asUndefined()
   itParses('gray($c, $a)').asInvalid()
@@ -207,6 +216,7 @@ describe 'ColorParser', ->
   itParses('YELLOW_GREEN').asColor('#9acd32')
 
   itParses('darken(cyan, 20%)').asColor(0, 153, 153)
+  itParses('darken(cyan, 20)').asColor(0, 153, 153)
   itParses('darken(#fff, 100%)').asColor(0, 0, 0)
   itParses('darken(cyan, $r)').asInvalid()
   itParses('darken($c, $r)').withContext({
@@ -224,6 +234,7 @@ describe 'ColorParser', ->
   }).asColor(0, 153, 153)
 
   itParses('lighten(cyan, 20%)').asColor(102, 255, 255)
+  itParses('lighten(cyan, 20)').asColor(102, 255, 255)
   itParses('lighten(#000, 100%)').asColor(255, 255, 255)
   itParses('lighten(cyan, $r)').asInvalid()
   itParses('lighten($c, $r)').withContext({
@@ -241,9 +252,12 @@ describe 'ColorParser', ->
   }).asColor(102, 255, 255)
 
   itParses('transparentize(cyan, 50%)').asColor(0, 255, 255, 0.5)
+  itParses('transparentize(cyan, 50)').asColor(0, 255, 255, 0.5)
   itParses('transparentize(cyan, 0.5)').asColor(0, 255, 255, 0.5)
   itParses('transparentize(cyan, .5)').asColor(0, 255, 255, 0.5)
   itParses('fadeout(cyan, 0.5)').asColor(0, 255, 255, 0.5)
+  itParses('fade-out(cyan, 0.5)').asColor(0, 255, 255, 0.5)
+  itParses('fade_out(cyan, 0.5)').asColor(0, 255, 255, 0.5)
   itParses('fadeout(cyan, .5)').asColor(0, 255, 255, 0.5)
   itParses('fadeout(cyan, @r)').asInvalid()
   itParses('fadeout($c, $r)').withContext({
@@ -261,9 +275,12 @@ describe 'ColorParser', ->
   }).asColor(0, 255, 255, 0.5)
 
   itParses('opacify(0x7800FFFF, 50%)').asColor(0, 255, 255, 1)
+  itParses('opacify(0x7800FFFF, 50)').asColor(0, 255, 255, 1)
   itParses('opacify(0x7800FFFF, 0.5)').asColor(0, 255, 255, 1)
   itParses('opacify(0x7800FFFF, .5)').asColor(0, 255, 255, 1)
   itParses('fadein(0x7800FFFF, 0.5)').asColor(0, 255, 255, 1)
+  itParses('fade-in(0x7800FFFF, 0.5)').asColor(0, 255, 255, 1)
+  itParses('fade_in(0x7800FFFF, 0.5)').asColor(0, 255, 255, 1)
   itParses('fadein(0x7800FFFF, .5)').asColor(0, 255, 255, 1)
   itParses('fadein(0x7800FFFF, @r)').asInvalid()
   itParses('fadein($c, $r)').withContext({
@@ -281,6 +298,7 @@ describe 'ColorParser', ->
   }).asColor(0, 255, 255, 1)
 
   itParses('saturate(#855, 20%)').asColor(158, 63, 63)
+  itParses('saturate(#855, 20)').asColor(158, 63, 63)
   itParses('saturate(#855, 0.2)').asColor(158, 63, 63)
   itParses('saturate(#855, @r)').asInvalid()
   itParses('saturate($c, $r)').withContext({
@@ -298,6 +316,7 @@ describe 'ColorParser', ->
   }).asColor(158, 63, 63)
 
   itParses('desaturate(#9e3f3f, 20%)').asColor(136, 85, 85)
+  itParses('desaturate(#9e3f3f, 20)').asColor(136, 85, 85)
   itParses('desaturate(#9e3f3f, 0.2)').asColor(136, 85, 85)
   itParses('desaturate(#9e3f3f, .2)').asColor(136, 85, 85)
   itParses('desaturate(#9e3f3f, @r)').asInvalid()
@@ -346,6 +365,8 @@ describe 'ColorParser', ->
   itParses('adjust-hue(#811, -45deg)').asColor(136, 17, 106)
   itParses('adjust-hue(#811, 45%)').asColor(136, 106, 17)
   itParses('adjust-hue(#811, -45%)').asColor(136, 17, 106)
+  itParses('adjust-hue(#811, 45)').asColor(136, 106, 17)
+  itParses('adjust-hue(#811, -45)').asColor(136, 17, 106)
   itParses('adjust-hue($c, $r)').asInvalid()
   itParses('adjust-hue($c, $r)').withContext({
     '$c': asColor 'hsv($h, $s, $v)'
@@ -363,6 +384,7 @@ describe 'ColorParser', ->
 
   itParses('mix(rgb(255,0,0), blue)').asColor(127, 0, 127)
   itParses('mix(red, rgb(0,0,255), 25%)').asColor(63, 0, 191)
+  itParses('mix(red, rgb(0,0,255), 25)').asColor(63, 0, 191)
   itParses('mix($a, $b, $r)').asInvalid()
   itParses('mix($a, $b, $r)').withContext({
     '$a': asColor 'hsv($h, $s, $v)'
@@ -388,6 +410,7 @@ describe 'ColorParser', ->
   }).asColor(63, 0, 191)
 
   itParses('tint(#fd0cc7,66%)').asColor(254, 172, 235)
+  itParses('tint(#fd0cc7,66)').asColor(254, 172, 235)
   itParses('tint($c,$r)').asInvalid()
   itParses('tint($c, $r)').withContext({
     '$c': asColor 'hsv($h, $s, $v)'
@@ -404,6 +427,7 @@ describe 'ColorParser', ->
   }).asColor(254, 172, 235, 0.966)
 
   itParses('shade(#fd0cc7,66%)').asColor(86, 4, 67)
+  itParses('shade(#fd0cc7,66)').asColor(86, 4, 67)
   itParses('shade($c,$r)').asInvalid()
   itParses('shade($c, $r)').withContext({
     '$c': asColor 'hsv($h, $s, $v)'
@@ -462,7 +486,10 @@ describe 'ColorParser', ->
   }).asColor(200, 90, 230)
 
   itParses('spin(#F00, 120)').asColor(0, 255, 0)
+  itParses('spin(#F00, 120)').asColor(0, 255, 0)
+  itParses('spin(#F00, 120deg)').asColor(0, 255, 0)
   itParses('spin(#F00, -120)').asColor(0, 0, 255)
+  itParses('spin(#F00, -120deg)').asColor(0, 0, 255)
   itParses('spin(@c, @a)').withContext({
     '@c': asColor '#F00'
     '@a': '120'
@@ -477,6 +504,7 @@ describe 'ColorParser', ->
 
   itParses('fade(#F00, 0.5)').asColor(255, 0, 0, 0.5)
   itParses('fade(#F00, 50%)').asColor(255, 0, 0, 0.5)
+  itParses('fade(#F00, 50)').asColor(255, 0, 0, 0.5)
   itParses('fade(@c, @a)').withContext({
     '@c': asColor '#F00'
     '@a': '0.5'
@@ -559,6 +587,7 @@ describe 'ColorParser', ->
   itParses('hardlight(@base, @modifier)').asInvalid()
 
   itParses('difference(#ff6600, 0x666666)').asColor('#990066')
+  itParses('difference(#ff6600,)()').asInvalid()
   itParses('difference(@base, @modifier)').withContext({
     '@base': asColor '#ff6600'
     '@modifier': asColor '#666666'
@@ -598,3 +627,139 @@ describe 'ColorParser', ->
     '@base': asColor 'red'
   }).asColor('#00ffff')
   itParses('complement(@base)').asInvalid()
+
+  itParses('transparentify(#808080)').asColor(0,0,0,0.5)
+  itParses('transparentify(#414141, black)').asColor(255,255,255,0.25)
+  itParses('transparentify(#91974C, 0xF34949, 0.5)').asColor(47,229,79,0.5)
+  itParses('transparentify(a)').withContext({
+    'a': asColor '#808080'
+  }).asColor(0,0,0,0.5)
+  itParses('transparentify(a, b, 0.5)').withContext({
+    'a': asColor '#91974C'
+    'b': asColor '#F34949'
+  }).asColor(47,229,79,0.5)
+  itParses('transparentify(a)').asInvalid()
+
+  itParses('red(#000, 255)').asColor(255,0,0)
+  itParses('red(a, b)').withContext({
+    'a': asColor '#000'
+    'b': '255'
+  }).asColor(255,0,0)
+  itParses('red(a, b)').asInvalid()
+
+  itParses('green(#000, 255)').asColor(0,255,0)
+  itParses('green(a, b)').withContext({
+    'a': asColor '#000'
+    'b': '255'
+  }).asColor(0,255,0)
+  itParses('green(a, b)').asInvalid()
+
+  itParses('blue(#000, 255)').asColor(0,0,255)
+  itParses('blue(a, b)').withContext({
+    'a': asColor '#000'
+    'b': '255'
+  }).asColor(0,0,255)
+  itParses('blue(a, b)').asInvalid()
+
+  itParses('alpha(#000, 0.5)').asColor(0,0,0,0.5)
+  itParses('alpha(a, b)').withContext({
+    'a': asColor '#000'
+    'b': '0.5'
+  }).asColor(0,0,0,0.5)
+  itParses('alpha(a, b)').asInvalid()
+
+  itParses('hue(#00c, 90deg)').asColor(0x66,0xCC,0)
+  itParses('hue(a, b)').withContext({
+    'a': asColor '#00c'
+    'b': '90deg'
+  }).asColor(0x66,0xCC,0)
+  itParses('hue(a, b)').asInvalid()
+
+  itParses('saturation(#00c, 50%)').asColor(0x33,0x33,0x99)
+  itParses('saturation(a, b)').withContext({
+    'a': asColor '#00c'
+    'b': '50%'
+  }).asColor(0x33,0x33,0x99)
+  itParses('saturation(a, b)').asInvalid()
+
+  itParses('lightness(#00c, 80%)').asColor(0x99,0x99,0xff)
+  itParses('lightness(a, b)').withContext({
+    'a': asColor '#00c'
+    'b': '80%'
+  }).asColor(0x99,0x99,0xff)
+  itParses('lightness(a, b)').asInvalid()
+
+  itParses('Color(255, 0, 0, 255)').asColor(255,0,0)
+  itParses('Color(r, g, b, a)').withContext({
+    'r': '255'
+    'g': '0'
+    'b': '0'
+    'a': '255'
+  }).asColor(255,0,0)
+  itParses('Color(r, g, b, a)').asInvalid()
+
+  describe 'elm-lang support', ->
+    itParses('rgba 255 0 0 1').asColor(255,0,0)
+    itParses('rgba r g b a').withContext({
+      'r': '255'
+      'g': '0'
+      'b': '0'
+      'a': '1'
+    }).asColor(255,0,0)
+    itParses('rgba r g b a').asInvalid()
+
+    itParses('rgb 255 0 0').asColor(255,0,0)
+    itParses('rgb r g b').withContext({
+      'r': '255'
+      'g': '0'
+      'b': '0'
+    }).asColor(255,0,0)
+    itParses('rgb r g b').asInvalid()
+
+    itParses('hsla (degrees 200) 50 50 0.5').asColor(64, 149, 191, 0.5)
+    itParses('hsla (degrees h) s l a').withContext({
+      'h': '200'
+      's': '50'
+      'l': '50'
+      'a': '0.5'
+    }).asColor(64, 149, 191, 0.5)
+    itParses('hsla (degrees h) s l a').asInvalid()
+
+    itParses('hsla 3.49 50 50 0.5').asColor(64, 149, 191, 0.5)
+    itParses('hsla h s l a').withContext({
+      'h': '3.49'
+      's': '50'
+      'l': '50'
+      'a': '0.5'
+    }).asColor(64, 149, 191, 0.5)
+    itParses('hsla h s l a').asInvalid()
+
+    itParses('hsl (degrees 200) 50 50').asColor(64, 149, 191)
+    itParses('hsl (degrees h) s l').withContext({
+      'h': '200'
+      's': '50'
+      'l': '50'
+    }).asColor(64, 149, 191)
+    itParses('hsl (degrees h) s l').asInvalid()
+
+    itParses('hsl 3.49 50 50').asColor(64, 149, 191)
+    itParses('hsl h s l').withContext({
+      'h': '3.49'
+      's': '50'
+      'l': '50'
+    }).asColor(64, 149, 191)
+    itParses('hsl h s l').asInvalid()
+
+    itParses('grayscale 1').asColor(0, 0, 0)
+    itParses('greyscale 0.5').asColor(127, 127, 127)
+    itParses('grayscale 0').asColor(255, 255, 255)
+    itParses('grayscale g').withContext({
+      'g': '0.5'
+    }).asColor(127, 127, 127)
+    itParses('grayscale g').asInvalid()
+
+    itParses('complement rgb 255 0 0').asColor('#00ffff')
+    itParses('complement base').withContext({
+      'base': asColor 'red'
+    }).asColor('#00ffff')
+    itParses('complement base').asInvalid()

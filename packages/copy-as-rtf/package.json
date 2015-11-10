@@ -1,7 +1,7 @@
 {
   "name": "copy-as-rtf",
   "main": "./lib/copy-as-rtf",
-  "version": "0.7.1",
+  "version": "0.8.1",
   "description": "A package to export highlighted code as RTF",
   "activationCommands": {
     "atom-workspace": [
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lucasmazza/copy-as-rtf"
+    "url": "git+https://github.com/lucasmazza/copy-as-rtf.git"
   },
   "license": "Apache 2.0",
   "engines": {
@@ -25,17 +25,17 @@
   "bugs": {
     "url": "https://github.com/lucasmazza/copy-as-rtf/issues"
   },
-  "homepage": "https://github.com/lucasmazza/copy-as-rtf",
-  "_id": "copy-as-rtf@0.7.1",
-  "_shasum": "18601f7f36c5ea258a12921b39a1a7a432edbb09",
-  "_resolved": "file:../d-115522-3443-jxv43b/package.tgz",
-  "_from": "../d-115522-3443-jxv43b/package.tgz",
+  "homepage": "https://github.com/lucasmazza/copy-as-rtf#readme",
+  "_id": "copy-as-rtf@0.8.1",
+  "_shasum": "7277d7ad06ee8f714ce5f0432ce6d074ad2eedf6",
+  "_resolved": "file:../d-115103-30555-29tgie/package.tgz",
+  "_from": "../d-115103-30555-29tgie/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [
       {
         "name": "copy-paste",
-        "version": "1.1.2",
+        "version": "1.1.3",
         "path": "node_modules/copy-paste/index.js"
       },
       {
@@ -60,7 +60,7 @@
       },
       {
         "name": "iconv-lite",
-        "version": "0.4.10",
+        "version": "0.4.13",
         "path": "node_modules/copy-paste/node_modules/iconv-lite/lib/index.js"
       },
       {

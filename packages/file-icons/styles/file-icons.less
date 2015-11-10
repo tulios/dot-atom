@@ -16,6 +16,9 @@
 // Package icon
 .icon-file-directory[data-name=".bundle"]:before { .package-icon; }
 
+// Meteor icon
+.icon-file-directory[data-name=".meteor"]:before { .meteor-icon; }
+
 // Default icon: image
 .icon-file-media[data-name$=".png"]:before { .medium-orange; }
 .icon-file-media[data-name$=".gif"]:before { .medium-yellow; }
@@ -26,7 +29,7 @@
 .icon-book[data-name="Readme.md"]:before,
 .icon-book[data-name="readme.md"]:before { .medium-blue; }
 
-@{pane-tab-selector}, .icon-file-text {
+.file-icons-tab-pane-icon @{pane-tab-selector}, .icon-file-text {
 
   &:before {
     .text-icon;
@@ -41,9 +44,17 @@
   &[data-name$="makefile"]:before { .checklist-icon; .medium-yellow; }
   &[data-name$=".mk"]:before { .checklist-icon; .medium-yellow; }
   &[data-name$=".mak"]:before { .checklist-icon; .medium-yellow; }
+
+  // Config files
+  &[data-name$=".ini"]:before { .config-icon; .medium-yellow; }
+  &[data-name$=".properties"]:before { .config-icon; .medium-purple; }
+  &[data-name$=".toml"]:before { .config-icon; .medium-green; }
+
   // Clojure
-  &[data-name$=".clj"]:before,
-  &[data-name$=".cljs"]:before { .clojure-icon; .medium-blue; }
+  &[data-name$=".clj"]:before { .clojure-icon; .medium-blue; }
+
+  // ClojureScript
+  &[data-name$=".cljs"]:before { .cljs-icon; .medium-blue; }
 
   // Code icon
   &[data-name$=".xml"]:before { .code-icon; .medium-blue;   }
@@ -89,15 +100,25 @@
   &[data-name$=".fsx"]:before    { .fsharp-icon; .medium-blue; }
   &[data-name$=".fsi"]:before    { .fsharp-icon; .medium-blue; }
 
+  // Git icon
+  &[data-name$=".gitconfig"]:before { .git-icon; }
+  &[data-name$=".gitignore"]:before { .git-icon; }
+  &[data-name$=".gitignore_global"]:before { .git-icon; }
+  &[data-name$=".gitkeep"]:before { .git-icon; }
+  &[data-name$=".gitattributes"]:before { .git-icon; }
+  &[data-name$=".gitmodules"]:before { .git-icon; }
 
   // HTML5 icon
-  &[data-name$=".html"]:before { .html5-icon; .medium-orange; }
+  &[data-name$=".html"]:before  { .html5-icon; .medium-orange; }
+  &[data-name$=".htm"]:before   { .html5-icon; .medium-orange; }
   &[data-name$=".shtml"]:before { .html5-icon; .medium-cyan;  }
-  &[data-name$=".haml"]:before { .haml-icon; .medium-yellow;  }
-  &[data-name$=".jade"]:before { .html5-icon; .medium-green;  }
-  &[data-name$=".jsp"]:before  { .html5-icon; .medium-purple; }
-  &[data-name$=".ctp"]:before  { .html5-icon; .medium-blue;   }
-  &[data-name$=".ejs"]:before  { .html5-icon; .medium-green;  }
+  &[data-name$=".haml"]:before  { .haml-icon; .medium-yellow;  }
+  &[data-name$=".jade"]:before  { .html5-icon; .medium-green;  }
+  &[data-name$=".jsp"]:before   { .html5-icon; .medium-purple; }
+  &[data-name$=".ctp"]:before   { .html5-icon; .medium-blue;   }
+  &[data-name$=".ejs"]:before   { .html5-icon; .medium-green;  }
+  &[data-name$=".swig"]:before  { .html5-icon; .medium-green;  }
+  &[data-name$=".cshtml"]:before { .html5-icon; .medium-red; }
 
   // Mustache icon
   &[data-name$=".hbs"]:before,
@@ -115,15 +136,16 @@
 
   // Gear icon
   &[data-name$=".hgignore"]:before      { .gear-icon;                 }
-  &[data-name$=".gitignore"]:before     { .gear-icon;                 }
-  &[data-name$=".gitattributes"]:before { .gear-icon;                 }
-  &[data-name=".gitmodules"]:before     { .gear-icon;                 }
   &[data-name=".mailmap"]:before        { .gear-icon;                 }
   &[data-name$=".editorconfig"]:before  { .gear-icon; .medium-orange; }
+  &[data-name=".csscomb.json"]:before   { .gear-icon; .medium-yellow; }
+  &[data-name$=".csslintrc"]:before     { .gear-icon; .medium-yellow; }
   &[data-name$=".jshintrc"]:before      { .gear-icon; .medium-yellow; }
   &[data-name$=".jshintignore"]:before  { .gear-icon;                 }
   &[data-name$=".eslintrc"]:before      { .gear-icon; .medium-yellow; }
   &[data-name$=".eslintignore"]:before  { .gear-icon;                 }
+  &[data-name$=".babelrc"]:before       { .gear-icon; .medium-yellow; }
+  &[data-name$=".babelignore"]:before   { .gear-icon;                 }
   &[data-name$=".jscsrc"]:before        { .gear-icon; .medium-yellow; }
   &[data-name$=".module"]:before        { .gear-icon; .medium-blue;   }
   &[data-name$=".htaccess"]:before      { .gear-icon; .medium-red;    }
@@ -136,17 +158,19 @@
   &[data-name=".npmrc"]:before           { .node-icon; }
   &[data-name=".npmignore"]:before       { .node-icon; }
   &[data-name="npm-debug.log"]:before    { .node-icon; .medium-red; }
+  &[data-name="package.json"]:before    { .node-icon; .medium-red; }
 
   // Bower icon
   &[data-name=".bowerrc"]:before     { .bower-icon; }
   &[data-name="bower.json"]:before   { .bower-icon; .medium-yellow; }
 
   // Sass icon
-  &[data-name$=".sass"]:before { .sass-icon; .light-purple; }
-  &[data-name$=".scss"]:before { .sass-icon; .dark-purple; }
+  &[data-name$=".sass"]:before { .sass-icon; .dark-pink; }
+  &[data-name$=".scss"]:before { .sass-icon; .light-pink; }
 
   // PHP icon
   &[data-name$=".php"]:before  { .php-icon; .dark-blue; }
+  &[data-name$=".hh"]:before  { .php-icon; .dark-blue; }
   &[data-name$=".blade.php"]:before  { .laravel-icon; .dark-purple; }
 
 
@@ -174,6 +198,7 @@
 
   &[data-name$=".rb"]:before,
   &[data-name$=".ru"]:before,
+  &[data-name$=".rake"]:before,
   &[data-name$=".erb"]:before,
   &[data-name$=".opal"]:before   { .ruby-icon; .medium-red; }
 
@@ -196,10 +221,20 @@
   &[data-name$=".jsx"]:before { .react-icon; .medium-blue; }
   /* &[data-name$=".jsx"]:before { .jsx-icon; .medium-blue; } */
 
+  // Elm icon
+  &[data-name$=".elm"]:before { .elm-icon; .medium-blue; }
+
+  // Boot icon
+  &[data-name$="build.boot"]:before { .boot-icon; }
+
+  // Lein icon
+  &[data-name$="project.clj"]:before { .lein-icon; }
+
   // Coffee icon
   &[data-name$=".coffee"]:before    { .coffee-icon; .medium-maroon; }
   &[data-name$=".cjsx"]:before      { .coffee-icon; .dark-maroon; }
   &[data-name$=".litcoffee"]:before { .coffee-icon; .light-maroon;  }
+  &[data-name$=".iced"]:before { .coffee-icon; .medium-blue;  }
 
 
   // ERB combinations
@@ -234,7 +269,7 @@
 
 
   // Scala
-  &[data-name$=".scala"]:before { .scala-icon; .medium-green; }
+  &[data-name$=".scala"]:before { .scala-icon; .medium-red; }
 
   // Haskell
   &[data-name$=".hs"]:before { .haskell-icon; .medium-purple; }
@@ -242,11 +277,6 @@
   // Rust
   &[data-name$=".rs"]:before   { .rust-icon; .medium-maroon; }
   &[data-name$=".rlib"]:before { .rust-icon; .light-maroon; }
-
-  //Cargo
-  &[data-name$="Cargo.toml"]:before { .package-icon; .light-orange; }
-  &[data-name$="Cargo.lock"]:before { .package-icon; .dark-orange; }
-
 
   // Objective-C, C++, C
   &[data-name$=".c"]:before       { .c-icon; .medium-blue; }
@@ -332,17 +362,31 @@
   &[data-name="Gulpfile.babel.js"]:before,
   &[data-name="gulpfile.babel.js"]:before  { .gulp-icon; .medium-red; }
 
+  //Cargo
+  &[data-name$="Cargo.toml"]:before { .package-icon; .light-orange; }
+  &[data-name$="Cargo.lock"]:before { .package-icon; .dark-orange; }
+
   // Ionic icon
   &[data-name="ionic.project"]:before { .ionic-icon; .medium-blue; }
 
   // NGINX icon
   &[data-name$=".conf"]:before { .nginx-icon; .dark-green; }
 
+  // Apache
+  &[data-name="apache.conf"]:before { .apache-icon; .medium-red; }
+  &[data-name="apache2.conf"]:before { .apache-icon; .medium-red; }
+  &[data-name="httpd.conf"]:before { .apache-icon; .medium-red; }
+
+  // OS packages
+  &[data-name$=".deb"]:before { .debian-icon; .medium-red; }
+  &[data-name$=".rpm"]:before { .red-hat-icon; .medium-red; }
+  &[data-name$=".dmg"]:before { .osx-icon; .medium-red; }
+
   // Travis icon
   &[data-name^=".travis"]:before { .travis-icon; .medium-red; }
 
   // Dockerfile icon
-  &[data-name="Dockerfile"]:before { .docker-icon; .dark-blue; }
+  &[data-name^="Dockerfile"]:before { .docker-icon; .dark-blue; }
 
   // XAML icon
   &[data-name$=".xaml"]:before { .code-icon; .medium-blue;   }
@@ -365,12 +409,11 @@
   &[data-name$=".png"]:before { .image-icon; .medium-orange; }
   &[data-name$=".gif"]:before { .image-icon; .medium-yellow; }
   &[data-name$=".jpg"]:before { .image-icon; .medium-green;  }
-
-  // Config files
-  &[data-name$=".ini"]:before { .config-icon; .medium-yellow; }
-  &[data-name$=".properties"]:before { .config-icon; .medium-purple; }
-  &[data-name$=".toml"]:before { .config-icon; .dark-maroon; }
-
+  &[data-name$=".svg"]:before { .svg-icon; .dark-yellow;  }
+  &[data-name$=".PNG"]:before { .image-icon; .medium-orange; }
+  &[data-name$=".GIF"]:before { .image-icon; .medium-yellow; }
+  &[data-name$=".JPG"]:before { .image-icon; .medium-green;  }
+  &[data-name$=".SVG"]:before { .svg-icon; .dark-yellow;  }
 
   // Windows specific Files
   &[data-name$=".bat"]:before { .windows-icon; .medium-purple;}
@@ -384,6 +427,10 @@
   &[data-name$=".sty"]:before { .tex-icon; .medium-red; }
   &[data-name$=".cls"]:before { .tex-icon; .medium-orange; }
   &[data-name$=".bib"]:before { .bibtex-icon; .medium-yellow; }
+
+  // Seperated Value files
+  &[data-name$=".csv"]:before { .graph-icon; .light-red; }
+  &[data-name$=".tsv"]:before { .graph-icon; .light-green; }
 
 }
 
