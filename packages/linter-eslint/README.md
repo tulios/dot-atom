@@ -1,10 +1,14 @@
 # linter-eslint
 
+[![Build Status](https://travis-ci.org/AtomLinter/linter-eslint.svg)](https://travis-ci.org/AtomLinter/linter-eslint)
+[![Dependency Status](https://david-dm.org/AtomLinter/linter-eslint.svg)](https://david-dm.org/AtomLinter/linter-eslint)
+
 This linter plugin for [Linter](https://github.com/AtomLinter/Linter) provides
 an interface to [eslint](http://eslint.org). It will be used with files that
-have the “JavaScript” syntax.
+have the "JavaScript" syntax.
 
 ## Installation
+
 ```ShellSession
 apm install linter-eslint
 ```
@@ -14,59 +18,55 @@ use it if it's available. If none is found it will fall back to the version it
 ships with.
 
 Lets say you depend on a specific version of `eslint`, maybe it has unreleased
-features, maybe it's just newer than what linter-eslint ships with. If
+features, maybe it's just newer than what `linter-eslint` ships with. If
 `your-project/node_modules/eslint` exists `linter-eslint` will be used.
+This package requires an `eslint` of at least v1.0.0.
 
-Note that if you do not have the `linter` package installed it will be installed
-for you. If you are using an alternative `linter-*` consumer feel free to disable
-the `linter` package.
+Note that if you do not have the `linter` package installed it will be
+installed
+for you. If you are using an alternative `linter-*` consumer feel free
+to disable the `linter` package.
 
 ## Use with plugins
 
 You have two options:
 
-* Install locally to your project `eslint` and the plugin
-  * `$ npm i --save-dev eslint [eslint-plugins]`
+*   Install locally to your project `eslint` and the plugin
 
-* Install globaly `eslint` and plugins
-  * `$ npm i -g eslint [eslint-plugins]`
-  * Activate `Use Global Eslint` package option
-  * (Optional) Set `Global Node Path` with `$ npm config get prefix`
+    *   `$ npm i --save-dev eslint [eslint-plugins]`
 
-## Settings
+*   Install globally `eslint` and plugins
 
-You can configure linter-eslint by editing ~/.atom/config.cson (choose Open Your Config in Atom menu) or in Preferences:
+    *   `$ npm i -g eslint [eslint-plugins]`
+    *   Activate `Use Global Eslint` package option
+    *   (Optional) Set `Global Node Path` with `$ npm config get prefix`
 
-```cson
-'linter-eslint':
-  'eslintRulesDir': 'mydir'
-  'disableWhenNoEslintrcFileInPath': true
-  'useGlobalEslint': true
-  'showRuleIdInMessage': true
-  'globalNodePath': '/Users/foo/.nvm/versions/io.js/v2.3.1'
+## Using ESLint
+
+Note that recent versions of ESLint do not use any rules by-default. This
+means you have to specify a configuration file for your project!
+
+To do this in a straightforward way run this:
+
+```ShellSession
+eslint --init
 ```
 
-* `eslintRulesDir` is relative to the working directory (project root)
-* `disableWhenNoEslintrcFileInPath` allows disabling linter-eslint when there is no `.eslintrc` found in project
-* `useGlobalEslint` allows using globally installed eslint and plugins for it
-* `showRuleIdInMessage`
-  * `true` will append the `eslint` ruleId to warning/error messages
+Alternatively you can create the `.eslintrc` file by yourself. It is a good
+idea to have a look at the [Get Started With ESLint](http://devnull.guru/get-started-with-eslint/)
+blog post by [IanVS](https://github.com/IanVS) and [the ESLint documentation](http://eslint.org/docs/user-guide/configuring),
+including the [list of rules](http://eslint.org/docs/rules/).
 
+## A Note About Settings
+
+If Use Global is on, Atom will use the global ESLint. The path to it is figured out by running `npm get prefix`. If this fails for any reason, you can set the global path manually in Global Node Installation Path.
+
+If Use Global is off, Atom will try to find a local installation in the project folder, look if there's ESLint in `${PROJECT_ROOT}/node_modules` and use it if found.
+
+The path to the local node_modules folder can be a path relative to the project or an absolute path and should end in /node_modules/. This path is used if the other methods of discovery have failed.
+
+If there is no local installation Atom will use the built-in ESLint in the linter-eslint package itself.
 
 ## Contributing
 
-If you would like to contribute enhancements or fixes, please do the following:
-
-0. Fork the plugin repository
-0. Hack on a separate topic branch created from the latest `master`
-0. Commit and push the topic branch
-0. Make a pull request
-0. Welcome to the club!
-
-Please note that modifications should follow these coding guidelines:
-
-* Indent is 2 spaces
-* Code should pass `coffeelint` linter with the provided `coffeelint.json`
-* Vertical whitespace helps readability, don’t be afraid to use it
-
-Thank you for helping out!
+See the [contributing guidelines](./CONTRIBUTING.md) to get started

@@ -97,6 +97,33 @@ describe "RubocopAutoCorrect", ->
         runs ->
           expect(buffer.getText()).toBe "{ atom: 'A hackable text editor for the 21st Century' }\n"
 
+  describe "when command with arguments", ->
+    beforeEach ->
+      buffer.setText("{ :atom => 'A hackable text editor for the 21st Century' }\n")
+      atom.config.set('rubocop-auto-correct.rubocopCommandPath', 'rubocop --no-color --format simple')
+
+    describe "when correct buffer", ->
+      it "manually run", ->
+        atom.config.set('rubocop-auto-correct.correctFile', false)
+        atom.commands.dispatch workspaceElement, 'rubocop-auto-correct:current-file'
+        bufferChangedSpy = jasmine.createSpy()
+        buffer.onDidChange(bufferChangedSpy)
+        waitsFor ->
+          bufferChangedSpy.callCount > 0
+        runs ->
+          expect(buffer.getText()).toBe "{ atom: 'A hackable text editor for the 21st Century' }\n"
+
+    describe "when correct file", ->
+      it "manually run", ->
+        atom.config.set('rubocop-auto-correct.correctFile', true)
+        atom.commands.dispatch workspaceElement, 'rubocop-auto-correct:current-file'
+        bufferChangedSpy = jasmine.createSpy()
+        buffer.onDidChange(bufferChangedSpy)
+        waitsFor ->
+          bufferChangedSpy.callCount > 1
+        runs ->
+          expect(buffer.getText()).toBe "{ atom: 'A hackable text editor for the 21st Century' }\n"
+
   describe "when toggle config", ->
     beforeEach ->
       @rubocopAutoCorrect = new RubocopAutoCorrect
@@ -115,12 +142,26 @@ describe "RubocopAutoCorrect", ->
       @rubocopAutoCorrect.toggleNotification()
       expect(atom.config.get('rubocop-auto-correct').notification).toBe false
 
+    it "changes notification", ->
+      atom.config.set('rubocop-auto-correct.onlyFixesNotification', false)
+      @rubocopAutoCorrect.toggleOnlyFixesNotification()
+      expect(atom.config.get('rubocop-auto-correct').onlyFixesNotification).toBe true
+      @rubocopAutoCorrect.toggleOnlyFixesNotification()
+      expect(atom.config.get('rubocop-auto-correct').onlyFixesNotification).toBe false
+
     it "changes correct method", ->
       atom.config.set('rubocop-auto-correct.correctFile', false)
       @rubocopAutoCorrect.toggleCorrectFile()
       expect(atom.config.get('rubocop-auto-correct').correctFile).toBe true
       @rubocopAutoCorrect.toggleCorrectFile()
       expect(atom.config.get('rubocop-auto-correct').correctFile).toBe false
+
+    it "changes debug mode", ->
+      atom.config.set('rubocop-auto-correct.debug-mode', false)
+      @rubocopAutoCorrect.toggleDebugMode()
+      expect(atom.config.get('rubocop-auto-correct').debugMode).toBe true
+      @rubocopAutoCorrect.toggleDebugMode()
+      expect(atom.config.get('rubocop-auto-correct').debugMode).toBe false
 
   describe "when makeTempFile", ->
     it "run makeTempFile", ->

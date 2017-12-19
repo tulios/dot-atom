@@ -1,25 +1,30 @@
-Path = require 'flavored-path'
+Path = require 'path'
+Os = require 'os'
 
-pathToRepoFile = Path.get "~/some/repository/directory/file"
-
+homedir = Os.homedir()
+pathToRepoFile = Path.join(homedir, "some/repository/directory/file")
 head = jasmine.createSpyObj('head', ['replace'])
 
 module.exports = mocks =
   pathToRepoFile: pathToRepoFile
+  pathToSampleDir: homedir
 
   repo:
-    getPath: -> Path.join this.getWorkingDirectory, ".git"
-    getWorkingDirectory: -> Path.get "~/some/repository"
+    getPath: -> Path.join this.getWorkingDirectory(), ".git"
+    getWorkingDirectory: -> Path.join(homedir, "some/repository")
+    getConfigValue: (key) -> 'some-value'
     refreshStatus: -> undefined
-    relativize: (path) -> "directory/file" if path is pathToRepoFile
+    relativize: (path) -> if path is pathToRepoFile then "directory/file" else path
     getReferences: ->
       heads: [head]
     getShortHead: -> 'short head'
+    getUpstreamBranch: -> 'refs/remotes/origin/foo'
+    isPathModified: -> false
     repo:
       submoduleForPath: (path) -> undefined
 
   currentPane:
-    alive: true
+    isAlive: -> true
     activate: -> undefined
     destroy: -> undefined
     getItems: -> [
@@ -27,7 +32,7 @@ module.exports = mocks =
     ]
 
   commitPane:
-    alive: true
+    isAlive: -> true
     destroy: -> mocks.textEditor.destroy()
     splitRight: -> undefined
     getItems: -> [

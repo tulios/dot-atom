@@ -1,34 +1,58 @@
 {
-  "name": "language-nginx",
-  "version": "0.6.1",
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-6189-fsygk4.p7rpb9/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-6189-fsygk4.p7rpb9/package.tgz",
+        "spec": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-6189-fsygk4.p7rpb9/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/apm-install-dir-1171118-6189-1eym14w.0clpmeipb9"
+    ]
+  ],
+  "_from": "../d-1171118-6189-fsygk4.p7rpb9/package.tgz",
+  "_id": "language-nginx@0.8.0",
+  "_inCache": true,
+  "_location": "/language-nginx",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-6189-fsygk4.p7rpb9/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-6189-fsygk4.p7rpb9/package.tgz",
+    "spec": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-6189-fsygk4.p7rpb9/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-1171118-6189-fsygk4.p7rpb9/package.tgz",
+  "_shasum": "f724bbfd5db38cb583b9240ef7579b7ee54db70d",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-6189-fsygk4.p7rpb9/package.tgz",
+  "_where": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/apm-install-dir-1171118-6189-1eym14w.0clpmeipb9",
+  "bugs": {
+    "url": "https://github.com/hnagato/atom-language-nginx/issues"
+  },
+  "dependencies": {},
   "description": "Syntax and snippet support for Nginx configuration files",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "homepage": "https://github.com/hnagato/atom-language-nginx#readme",
+  "license": "MIT",
+  "name": "language-nginx",
+  "optionalDependencies": {},
+  "readme": "# Nginx syntax support in Atom\n\nAdds syntax highlighting and snippet support to Nginx configuration files.\nPorted from [textmate/nginx](https://github.com/johnmuhl/nginx-tmbundle) for Atom.\n\n## How to use\nGive Nginx configuration files the extension `.conf` or `.nginx`\n",
+  "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hnagato/atom-language-nginx.git"
   },
-  "license": "MIT",
-  "engines": {
-    "atom": ">0.50.0"
-  },
-  "dependencies": {},
-  "readme": "# Nginx syntax support in Atom\n\nAdds syntax highlighting and snippet support to Nginx configuration files.\nPorted from [textmate/nginx](https://github.com/johnmuhl/nginx-tmbundle) for Atom.\n",
-  "readmeFilename": "README.md",
-  "bugs": {
-    "url": "https://github.com/hnagato/atom-language-nginx/issues"
-  },
-  "homepage": "https://github.com/hnagato/atom-language-nginx#readme",
-  "_id": "language-nginx@0.6.1",
-  "_shasum": "267a1dc735f9584d662bfbdbaa1e33794dbccc6d",
-  "_resolved": "file:../d-115913-41294-5512d6/package.tgz",
-  "_from": "../d-115913-41294-5512d6/package.tgz",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "version": "0.8.0"
 }

@@ -35,19 +35,35 @@
 @light-orange:    mix( @syntax-mix-base, #E5C17C, @syntax-mix-color);
 @bright-orange:   mix( @syntax-mix-base, #FF8000, @syntax-mix-color);
 
-atom-text-editor::shadow {
-  .source.js.jsx {
-    .jsx {
-      .entity {
-        &.other {
-          &.attribute-name {
+atom-text-editor {
+  .syntax--source.syntax--js.syntax--jsx {
+    .syntax--graphql {
+      .syntax--alias {
+        font-style: italic
+      }
+      .syntax--support.syntax--type.syntax--builtin {
+        -webkit-filter: brightness(80%);
+      }
+    }
+    .syntax--jsx {
+      .syntax--entity {
+        &.syntax--other {
+          &.syntax--attribute-name {
              font-style: italic // color: @cyan;
           }
         }
       }
-      .constant.character.entity {
+      .syntax--constant.syntax--character.syntax--entity {
         font-style: italic
       }
+    }
+  }
+  .syntax--constant.syntax--numeric.syntax--bigint {
+    font-style: italic
+  }
+  .syntax--source.syntax--css.syntax--styled {
+    .syntax--support.syntax--type.syntax--property-name.syntax--unknown {
+      -webkit-filter: brightness(75%);
     }
   }
 }

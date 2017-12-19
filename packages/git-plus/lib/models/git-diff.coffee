@@ -5,36 +5,53 @@ fs = require 'fs-plus'
 
 git = require '../git'
 notifier = require '../notifier'
-splitPane = require '../splitPane'
+RevisionView = require '../views/git-revision-view'
+
+nothingToShow = 'Nothing to show.'
 
 disposables = new CompositeDisposable
 
-module.exports = (repo, {diffStat, file}={}) ->
-  diffFilePath = Path.join(repo.getPath(), "atom_git_plus.diff")
-  file ?= repo.relativize(atom.workspace.getActiveTextEditor()?.getPath())
-  if not file
-    return notifier.addError "No open file. Select 'Diff All'."
-  args = ['diff', '--color=never']
-  args.push 'HEAD' if atom.config.get 'git-plus.includeStagedDiff'
-  args.push '--word-diff' if atom.config.get 'git-plus.wordDiff'
-  args.push file unless diffStat
-  git.cmd(args, cwd: repo.getWorkingDirectory())
-  .then (data) -> prepFile (diffStat ? '') + data, diffFilePath
-  .then -> showFile diffFilePath
-  .then (textEditor) -> disposables.add textEditor.onDidDestroy ->
-    fs.unlink diffFilePath
+showFile = (filePath) ->
+  if atom.config.get('git-plus.general.openInPane')
+    splitDirection = atom.config.get('git-plus.general.splitPane')
+    atom.workspace.getCenter().getActivePane()["split#{splitDirection}"]()
+  atom.workspace.open(filePath)
 
 prepFile = (text, filePath) ->
   new Promise (resolve, reject) ->
     if text?.length is 0
-      notifier.addInfo 'Nothing to show.'
+      reject nothingToShow
     else
       fs.writeFile filePath, text, flag: 'w+', (err) ->
         if err then reject err else resolve true
 
-showFile = (filePath) ->
-  atom.workspace.open(filePath, searchAllPanes: true).then (textEditor) ->
-    if atom.config.get('git-plus.openInPane')
-      splitPane(atom.config.get('git-plus.splitPane'), textEditor)
-    else
-      textEditor
+splitDiff = (repo, pathToFile) ->
+  atom.workspace.open(pathToFile, {
+    split: 'left',
+    activatePane: false,
+    activateItem: true,
+    searchAllPanes: false
+  }).then (editor) -> RevisionView.showRevision(repo, editor, repo.branch)
+
+module.exports = (repo, {diffStat, file}={}) ->
+  file ?= repo.relativize(atom.workspace.getActiveTextEditor()?.getPath())
+  if file and file isnt '.' and atom.config.get('git-plus.experimental.useSplitDiff')
+    splitDiff(repo, file)
+  else
+    diffFilePath = Path.join(repo.getPath(), "atom_git_plus.diff")
+    if not file
+      return notifier.addError "No open file. Select 'Diff All'."
+    args = ['diff', '--color=never']
+    args.push 'HEAD' if atom.config.get 'git-plus.diffs.includeStagedDiff'
+    args.push '--word-diff' if atom.config.get 'git-plus.diffs.wordDiff'
+    args.push file unless diffStat
+    git.cmd(args, cwd: repo.getWorkingDirectory())
+    .then (data) -> prepFile((diffStat ? '') + data, diffFilePath)
+    .then -> showFile diffFilePath
+    .then (textEditor) ->
+      disposables.add textEditor.onDidDestroy -> fs.unlink diffFilePath
+    .catch (err) ->
+      if err is nothingToShow
+        notifier.addInfo err
+      else
+        notifier.addError err

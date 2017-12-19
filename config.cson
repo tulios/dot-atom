@@ -1,33 +1,12 @@
 "*":
-  "exception-reporting":
-    userId: "99186274-4721-4381-1cdf-4d90e613d9ad"
-  "release-notes":
-    viewedVersion: "0.71.0"
-  welcome:
-    showOnStartup: false
-  metrics:
-    userId: "aa943ad317c94e92019016ddf88b495c46835685"
-  editor:
-    fontFamily: "PragmataPro"
-    showIndentGuide: true
-    preferredLineLength: 200
-    softWrap: true
-    softWrapAtPreferredLineLength: true
-    scrollPastEnd: true
-    useShadowDOM: true
-    invisibles: {}
-    fontSize: 26
+  "atom-color-highlight": {}
+  "autocomplete-plus":
+    autoActivationDelay: 200
+  "copy-as-rtf": {}
   core:
-    ignoredNames: [
-      ".git"
-      ".svn"
-      ".DS_Store"
-      ".ruby-version"
-      ".ruby-gemset"
-      ".gitignore"
-      ".gitmodules"
-      ".rspec"
-    ]
+    audioBeep: false
+    closeEmptyWindows: false
+    destroyEmptyPanes: false
     disabledPackages: [
       "archive-view"
       "autoflow"
@@ -42,55 +21,87 @@
       "linter"
       "linter-coffeelint"
     ]
-    themes: [
-      "one-dark-ui"
-      "one-dark-syntax"
+    ignoredNames: [
+      ".git"
+      ".svn"
+      ".DS_Store"
+      ".ruby-version"
+      ".ruby-gemset"
+      ".gitignore"
+      ".gitmodules"
+      ".rspec"
     ]
     projectHome: "/Users/tulio/Projects"
-    audioBeep: false
-  "tree-view":
-    hideIgnoredNames: true
-    hideVcsIgnoredFiles: true
-  react: {}
-  "copy-as-rtf": {}
-  "autocomplete-plus":
-    autoActivationDelay: 200
-  "atom-color-highlight": {}
-  pigments: {}
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "gloom"
+    ]
+  editor:
+    fontFamily: "PragmataPro"
+    fontSize: 17
+    invisibles: {}
+    preferredLineLength: 200
+    scrollPastEnd: true
+    showIndentGuide: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+    useShadowDOM: true
+  "exception-reporting":
+    userId: "99186274-4721-4381-1cdf-4d90e613d9ad"
   "fuzzy-finder":
     ignoredNames: [
       "*/vcr/*"
     ]
-  "language-babel":
-    transpileOnSave: false
-    disableWhenNoBabelrcFileInPath: true
-  "merge-conflicts": {}
-  "rubocop-auto-correct":
-    autoRun: true
-  linter: {}
-  "go-plus": {}
   "git-plus": {}
+  "go-plus": {}
+  "language-babel":
+    disableWhenNoBabelrcFileInPath: true
+    transpileOnSave: false
+  linter: {}
   "markdown-preview":
     useGitHubStyle: true
-".gohtml.html.text":
-  editor:
-    preferredLineLength: 200
-".js.regexp.source":
-  editor:
-    preferredLineLength: 200
-".js.jsx.source":
-  editor:
-    preferredLineLength: 200
+  "merge-conflicts": {}
+  metrics:
+    userId: "aa943ad317c94e92019016ddf88b495c46835685"
+  pigments: {}
+  "prettier-atom":
+    formatOnSaveOptions:
+      showInStatusBar: true
+    prettierOptions:
+      printWidth: 100
+      semi: false
+      singleQuote: true
+      trailingComma: "es5"
+  react: {}
+  "release-notes":
+    viewedVersion: "0.71.0"
+  "rubocop-auto-correct":
+    autoRun: true
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false
 ".babel.regexp.source":
   editor:
     preferredLineLength: 200
 ".diff.source":
   editor:
     preferredLineLength: 200
+".go.source":
+  editor:
+    preferredLineLength: 200
+".gohtml.html.text":
+  editor:
+    preferredLineLength: 200
 ".gotemplate.source":
   editor:
     preferredLineLength: 200
-".go.source":
+".js.jsx.source":
+  editor:
+    preferredLineLength: 200
+".js.regexp.source":
   editor:
     preferredLineLength: 200
 ".js.source":

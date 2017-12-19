@@ -1,8 +1,11 @@
 'fileTypes': [
   'groovy'
+  'groovy.inc'
   'gvy'
   'gradle'
+  'Jenkinsfile'
 ]
+'firstLineMatch': '^#!/*.*\\bgroovy'
 'foldingStartMarker': '(\\{\\s*$|^\\s*// \\{\\{\\{)'
 'foldingStopMarker': '^\\s*(\\}|// \\}\\}\\}$)'
 'name': 'Groovy'

@@ -1,35 +1,64 @@
 {
-  "name": "language-groovy",
-  "version": "0.4.0",
-  "private": true,
-  "description": "Groovy language support in Atom",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Jakehp/language-groovy"
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-6182-1yfmr8d.h8xh8bbj4i/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-6182-1yfmr8d.h8xh8bbj4i/package.tgz",
+        "spec": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-6182-1yfmr8d.h8xh8bbj4i/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/apm-install-dir-1171118-6182-1tw11ea.h37s2u766r"
+    ]
+  ],
+  "_from": "../d-1171118-6182-1yfmr8d.h8xh8bbj4i/package.tgz",
+  "_id": "language-groovy@0.7.0",
+  "_inCache": true,
+  "_location": "/language-groovy",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-6182-1yfmr8d.h8xh8bbj4i/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-6182-1yfmr8d.h8xh8bbj4i/package.tgz",
+    "spec": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-6182-1yfmr8d.h8xh8bbj4i/package.tgz",
+    "type": "local"
   },
-  "license": "MIT",
-  "engines": {
-    "atom": ">0.50.0 <2.0.0"
-  },
-  "dependencies": {},
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-1171118-6182-1yfmr8d.h8xh8bbj4i/package.tgz",
+  "_shasum": "6174939bda5c578d452ed43c67c5316d50d74dba",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-6182-1yfmr8d.h8xh8bbj4i/package.tgz",
+  "_where": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/apm-install-dir-1171118-6182-1tw11ea.h37s2u766r",
   "bugs": {
     "url": "https://github.com/Jakehp/language-groovy/issues"
   },
-  "readme": "# Groovy language support in Atom\n\nAdds syntax highlighting and snippets to Groovy files in Atom.\n\nOriginally [converted](http://atom.io/docs/latest/converting-a-text-mate-bundle)\nfrom the [groovy.tmbundle](https://github.com/textmate/groovy.tmbundle).\n\nContributions are *greatly* appreciated. Please fork this repository, open a pull request to add snippets, make grammar tweaks, fix issues, etc.\n\n## Installation\n\n```shell\napm install language-groovy\n```\nIf apm is not recognized, open Atom, open the Atom menu, and select \"Install Shell Commands\". Then try running the command again.\n",
+  "dependencies": {},
+  "description": "Groovy language support in Atom",
+  "devDependencies": {
+    "coffeelint": "1.10.1"
+  },
+  "engines": {
+    "atom": ">0.50.0 <2.0.0"
+  },
+  "homepage": "https://github.com/Jakehp/language-groovy#readme",
+  "license": "MIT",
+  "name": "language-groovy",
+  "optionalDependencies": {},
+  "private": true,
+  "readme": "# Groovy language support in Atom\n\n[![Build Status](https://travis-ci.org/Jakehp/language-groovy.svg?branch=master)](https://travis-ci.org/Jakehp/language-groovy)\n\nAdds syntax highlighting and snippets to Groovy files in Atom.\n\nOriginally [converted](https://atom.io/docs/latest/hacking-atom-converting-from-textmate)\nfrom the [groovy.tmbundle](https://github.com/textmate/groovy.tmbundle).\n\nContributions are *greatly* appreciated. Please fork this repository, open a pull request to add snippets, make grammar tweaks, fix issues, etc.\n\n## Installation\n\n```shell\napm install language-groovy\n```\nIf `apm` is not recognized, open Atom, open the Atom menu, and select \"Install Shell Commands\". Then try running the command again.\n\n## Local Development\n\nYou can use `apm` to link the local copy and install the dependencies:\n\n```shell\n> apm dev language-groovy /path/to/your/cloned/fork\n```\n\nThe package will appear in the *Development* section of Atom's packages. Re-open your window in Development Mode (*View->Developer->Open in Dev Mode*) and test your changes.\n\nContributors:  \n[AwaNoodle](https://github.com/AwaNoodle), [ssbarnea](https://github.com/ssbarnea), [sjurgemeyer](https://github.com/sjurgemeyer), [glaforge](https://github.com/glaforge), [alberthier](https://github.com/alberthier), [kpitt](https://github.com/kpitt), [ChristianMurphy](https://github.com/ChristianMurphy), [bhuddleston42](https://github.com/bhuddleston42), [bakharal](https://github.com/bakharal)\n",
   "readmeFilename": "README.md",
-  "homepage": "https://github.com/Jakehp/language-groovy",
-  "_id": "language-groovy@0.4.0",
-  "_shasum": "43f6ddce2406dbcb97485718761903c78bd3e9da",
-  "_resolved": "file:../d-11574-8875-1q0tyaw/package.tgz",
-  "_from": "../d-11574-8875-1q0tyaw/package.tgz",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jakehp/language-groovy.git"
+  },
+  "scripts": {
+    "test": "coffeelint grammars/groovy.cson settings/language-groovy.cson snippets/language-groovy.cson"
+  },
+  "version": "0.7.0"
 }
