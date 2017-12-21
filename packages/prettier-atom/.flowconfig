@@ -1,0 +1,13 @@
+[ignore]
+dist
+
+[include]
+
+[libs]
+decls/
+
+[options]
+suppress_type=$FlowIssue
+suppress_type=$FlowFixMe
+suppress_comment=\\(.\\|\n\\)*\\$FlowIssue\\($\\|[^(]\\|(\\(>=0\\.\\(1[0-6]\\|[0-9]\\).[0-9]\\)? *\\(site=[a-z,_]*www[a-z,_]*\\)?)\\)
+suppress_comment=\\(.\\|\n\\)*\\$FlowFixMe\\($\\|[^(]\\|(\\(>=0\\.\\(1[0-6]\\|[0-9]\\).[0-9]\\)? *\\(site=[a-z,_]*www[a-z,_]*\\)?)\\)

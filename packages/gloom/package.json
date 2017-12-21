@@ -1,0 +1,64 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-7273-13lbqsq.738eok1emi/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-7273-13lbqsq.738eok1emi/package.tgz",
+        "spec": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-7273-13lbqsq.738eok1emi/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/apm-install-dir-1171118-7273-pgwy43.ex1mm42t9"
+    ]
+  ],
+  "_from": "../d-1171118-7273-13lbqsq.738eok1emi/package.tgz",
+  "_id": "gloom@0.6.4",
+  "_inCache": true,
+  "_location": "/gloom",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-7273-13lbqsq.738eok1emi/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-7273-13lbqsq.738eok1emi/package.tgz",
+    "spec": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-7273-13lbqsq.738eok1emi/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-1171118-7273-13lbqsq.738eok1emi/package.tgz",
+  "_shasum": "76b1ce195fa3bf587b86545c6239d82ebed349d7",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/d-1171118-7273-13lbqsq.738eok1emi/package.tgz",
+  "_where": "/private/var/folders/3t/z5gnqbcx5zx62zkvnzsjlgvhgbwnyp/T/apm-install-dir-1171118-7273-pgwy43.ex1mm42t9",
+  "bugs": {
+    "url": "https://github.com/hejrobin/gloom/issues"
+  },
+  "dependencies": {},
+  "description": "A dark and gloomy pastel color syntax theme for Atom.",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.13.0 <2.0.0"
+  },
+  "homepage": "https://github.com/hejrobin/gloom#readme",
+  "keywords": [
+    "syntax",
+    "theme",
+    "gloom"
+  ],
+  "license": "MIT",
+  "name": "gloom",
+  "optionalDependencies": {},
+  "readme": "# [Gloom](https://atom.io/themes/gloom) &nbsp; [![GitHub release](https://img.shields.io/github/tag/hejrobin/gloom.svg)](https://github.com/hejrobin/gloom/releases) [![GitHub stars](https://img.shields.io/github/stars/hejrobin/gloom.svg?style=social&label=Star)](https://github.com/hejrobin/gloom/stargazers)\n<sup>For [Atom](https://atom.io/) 1.13 and later</sup>\n\nA dark and gloomy pastel color syntax theme for Atom.\n\n---\n\n### Language &bull; `Go`\n![Language: Go](https://raw.githubusercontent.com/hejrobin/gloom/master/go.png)\n\n### Language &bull; `Ruby`\n![Language: Ruby](https://raw.githubusercontent.com/hejrobin/gloom/master/ruby.png)\n\n### Language &bull; `CSS`\n![Language: CSS](https://raw.githubusercontent.com/hejrobin/gloom/master/css.png)\n\n### Language &bull; `JavaScript`\n![Language: JavaScript](https://raw.githubusercontent.com/hejrobin/gloom/master/js.png)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hejrobin/gloom.git"
+  },
+  "theme": "syntax",
+  "version": "0.6.4"
+}

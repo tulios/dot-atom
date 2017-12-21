@@ -17,8 +17,6 @@
       "atom-erb"
       "atom-color-highlight"
       "jshint"
-      "linter-eslint"
-      "linter"
       "linter-coffeelint"
     ]
     ignoredNames: [
@@ -39,7 +37,7 @@
     ]
   editor:
     fontFamily: "PragmataPro"
-    fontSize: 17
+    fontSize: 19
     invisibles: {}
     preferredLineLength: 200
     scrollPastEnd: true
@@ -59,6 +57,7 @@
     disableWhenNoBabelrcFileInPath: true
     transpileOnSave: false
   linter: {}
+  "linter-eslint": {}
   "markdown-preview":
     useGitHubStyle: true
   "merge-conflicts": {}
@@ -67,6 +66,7 @@
   pigments: {}
   "prettier-atom":
     formatOnSaveOptions:
+      enabled: true
       showInStatusBar: true
     prettierOptions:
       printWidth: 100
